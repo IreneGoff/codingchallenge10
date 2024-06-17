@@ -5,9 +5,9 @@ function loadPurchaseOrders() {
     // Path to CSV file
     const csvFilePath = 'data/purchase_orders.csv';
 
-    // Use d3.dsv to load CSV files
+    // Utilize d3.dsv to load CSV files
     d3.csv(csvFilePath).then(data => {
-        // Select the UL element where the list items will be appended
+        // Select the UL element where list items will be appended
         const orderList = d3.select('#order-list');
 
         // Iterate over each data entry and create a list item
@@ -15,7 +15,7 @@ function loadPurchaseOrders() {
             // Create a new LI element
             const listItem = orderList.append('li');
 
-            // Set the text content of the list item
+            // Set text content of the list item
             listItem.text(`${order.customerName} - Order ID: ${order.orderId} - Purchase Amount: ${order.purchaseAmount}`);
         });
     }).catch(error => {
